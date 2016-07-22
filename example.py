@@ -23,7 +23,7 @@ if __name__ == '__main__':
     while 1:
       try:
           # Log in with a Google or Pokemon Trainer Club account
-          print client.login_with_google('arpeem@gmail.com', 'enzetmi')
+          print client.login_with_google('', '')
           #print client.login_with_pokemon_trainer('USERNAME', 'PASSWORD')
           
           # Get specific Pokemon Go API endpoint
@@ -33,7 +33,7 @@ if __name__ == '__main__':
           print client.get_profile()
           
           # get current lat long
-          latLon = json.loads(requests.get('http://localhost:3000/current').content)
+          latLon = json.loads(requests.get('https://pradar.herokuapp.com/current').content)
           print 'latLong!', latLon['lat'], latLon['long']
           bounds = get_bounds_for_lat_long(None, latLon['lat'], latLon['long'])
           print 'BOUNDS!', bounds
